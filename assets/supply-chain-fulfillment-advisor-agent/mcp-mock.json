@@ -1,0 +1,134 @@
+{
+  "servers": {
+    "salesorder": {
+      "mcp_server_name": "sap.s4:apiResource:CE_SALESORDER_0001_MCP:v1",
+      "description": "MCP server for SAP S/4HANA Sales Order API (CE_SALESORDER_0001). Provides read access to sales orders and their items.",
+      "tools": {
+        "get_salesorder_for_sap_self": {
+          "description": "Retrieve a single entity by its key from the SalesOrder collection in the sap_self service.",
+          "input_schema": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["salesorder"],
+            "properties": {
+              "salesorder": {
+                "title": "SalesOrder",
+                "type": "string",
+                "maxLength": 10,
+                "description": "Key property SalesOrder"
+              },
+              "select": {
+                "title": "select",
+                "type": "string",
+                "description": "OData $select query option"
+              },
+              "expand": {
+                "title": "expand",
+                "type": "string",
+                "description": "OData $expand query option"
+              }
+            }
+          },
+          "mock_response": {
+            "SalesOrder": "SO-10042",
+            "SalesOrderType": "OR",
+            "SalesOrderProcessingType": "A",
+            "SoldToParty": "CUST-001",
+            "SalesOrganization": "1000",
+            "DistributionChannel": "10",
+            "OrganizationDivision": "00",
+            "RequestedDeliveryDate": "2026-05-28",
+            "SalesOrderDate": "2026-05-21",
+            "TotalNetAmount": 125000.00,
+            "TransactionCurrency": "USD",
+            "OverallSDProcessStatus": "A",
+            "OverallDeliveryStatus": "A",
+            "OverallDeliveryBlockStatus": " ",
+            "CompleteDeliveryIsDefined": false,
+            "ShippingCondition": "01",
+            "SAP__Messages": [],
+            "_Item": []
+          }
+        },
+        "list_salesorderitem_for_sap_self": {
+          "description": "Retrieve a list of entities from the SalesOrderItem collection in the sap_self service.",
+          "input_schema": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [],
+            "properties": {
+              "filter": {
+                "title": "filter",
+                "type": "string",
+                "description": "OData $filter expression"
+              },
+              "select": {
+                "title": "select",
+                "type": "string",
+                "description": "OData $select"
+              },
+              "top": {
+                "title": "top",
+                "type": "integer",
+                "minimum": 0
+              },
+              "skip": {
+                "title": "skip",
+                "type": "integer",
+                "minimum": 0
+              },
+              "expand": {
+                "title": "expand",
+                "type": "string"
+              },
+              "orderby": {
+                "title": "orderby",
+                "type": "string"
+              },
+              "count": {
+                "title": "count",
+                "type": "boolean"
+              }
+            }
+          },
+          "mock_response": {
+            "value": [
+              {
+                "SalesOrder": "SO-10042",
+                "SalesOrderItem": "000010",
+                "SalesOrderItemCategory": "TAN",
+                "SalesOrderItemText": "Industrial Valve Assembly",
+                "Product": "MAT-1042",
+                "RequestedQuantity": 500.0,
+                "RequestedQuantitySAPUnit": "EA",
+                "RequestedDeliveryDate": "2026-05-28",
+                "ConfirmedDeliveryDate": "2026-05-26",
+                "Plant": "P001",
+                "StorageLocation": "0001",
+                "NetAmount": 125000.00,
+                "TransactionCurrency": "USD",
+                "DeliveryStatus": "A",
+                "SDProcessStatus": "A",
+                "ConfdDelivQtyInOrderQtyUnit": 320.0,
+                "SAP__Messages": []
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "created_for_agent": "supply-chain-fulfillment-advisor-agent",
+    "mock_mode": true,
+    "deterministic": true,
+    "total_servers": 1,
+    "total_tools": 2,
+    "generated_from": [
+      "mcp-spec-salesorder-get_salesorder_for_sap_self.json",
+      "mcp-spec-salesorder-list_salesorderitem_for_sap_self.json"
+    ],
+    "generation_date": "2026-05-21"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "mcpServerOrdId": "sap.s4:apiResource:CE_SALESORDER_0001_MCP:v1",
+  "name": "get_salesorder_for_sap_self",
+  "title": "get_SalesOrder_for_sap_self",
+  "description": "Retrieve a single entity by its key from the SalesOrder collection in the sap_self service. Provide the key property value(s) to identify the specific entity to retrieve. Supports OData query options for selecting specific properties ($select), expanding related entities ($expand). If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+  "inputSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["salesorder"],
+    "properties": {
+      "salesorder": {
+        "title": "SalesOrder",
+        "type": "string",
+        "maxLength": 10,
+        "description": "Key property SalesOrder"
+      },
+      "select": {
+        "title": "select",
+        "description": "OData $select query option. Specify a comma-separated list of property names to include in the response.",
+        "type": "string",
+        "examples": ["SalesOrder,SoldToParty,RequestedDeliveryDate"]
+      },
+      "expand": {
+        "title": "expand",
+        "description": "OData $expand query option to include related entities in the response.",
+        "type": "string"
+      }
+    }
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "SalesOrder": { "type": "string", "maxLength": 10 },
+      "SalesOrderType": { "type": "string", "maxLength": 4 },
+      "SoldToParty": { "type": "string", "maxLength": 10 },
+      "SalesOrganization": { "type": "string", "maxLength": 4 },
+      "RequestedDeliveryDate": { "type": ["string", "null"], "description": "Edm.Date" },
+      "TotalNetAmount": { "type": "number" },
+      "TransactionCurrency": { "type": "string", "maxLength": 3 },
+      "OverallSDProcessStatus": { "type": "string", "maxLength": 1 },
+      "OverallDeliveryStatus": { "type": "string", "maxLength": 1 },
+      "_Item": { "type": "array", "items": { "type": ["object", "null"] } }
+    }
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "summary": {
+    "total": 22,
+    "passed": 22,
+    "failed": 0,
+    "score": 100.0
+  },
+  "sections": [
+    {
+      "name": "Structure Tests",
+      "marker": "structure",
+      "total": 3,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "score": 100.0,
+      "tests": [
+        {
+          "name": "test_agent_directory_exists",
+          "outcome": "passed",
+          "duration": 0.0003
+        },
+        {
+          "name": "test_app_directory_exists",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_requirements_txt_exists",
+          "outcome": "passed",
+          "duration": 0.0002
+        }
+      ]
+    },
+    {
+      "name": "Server Tests",
+      "marker": "server",
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "score": 0.0,
+      "tests": []
+    },
+    {
+      "name": "Agent Tests",
+      "marker": "agent_tests",
+      "total": 19,
+      "passed": 19,
+      "failed": 0,
+      "skipped": 0,
+      "score": 100.0,
+      "tests": [
+        {
+          "name": "test_agent_integration_so10042",
+          "outcome": "passed",
+          "duration": 3.2375
+        },
+        {
+          "name": "test_agent_stream_yields_content",
+          "outcome": "passed",
+          "duration": 0.0117
+        },
+        {
+          "name": "test_full_delivery_exact",
+          "outcome": "passed",
+          "duration": 0.0013
+        },
+        {
+          "name": "test_full_delivery_surplus",
+          "outcome": "passed",
+          "duration": 0.0008
+        },
+        {
+          "name": "test_partial_shipment_when_po_covers_gap",
+          "outcome": "passed",
+          "duration": 0.0008
+        },
+        {
+          "name": "test_escalate_when_po_late",
+          "outcome": "passed",
+          "duration": 0.0008
+        },
+        {
+          "name": "test_escalate_when_po_insufficient",
+          "outcome": "passed",
+          "duration": 0.0008
+        },
+        {
+          "name": "test_escalate_when_no_po",
+          "outcome": "passed",
+          "duration": 0.0008
+        },
+        {
+          "name": "test_get_material_stock_known_material",
+          "outcome": "passed",
+          "duration": 0.0008
+        },
+        {
+          "name": "test_get_material_stock_healthy_nodes",
+          "outcome": "passed",
+          "duration": 0.001
+        },
+        {
+          "name": "test_get_material_stock_unknown_material",
+          "outcome": "passed",
+          "duration": 0.0011
+        },
+        {
+          "name": "test_get_material_stock_node_fields",
+          "outcome": "passed",
+          "duration": 0.0008
+        },
+        {
+          "name": "test_qualifying_po_within_deadline",
+          "outcome": "passed",
+          "duration": 0.0009
+        },
+        {
+          "name": "test_po_not_qualifying_before_eta",
+          "outcome": "passed",
+          "duration": 0.0009
+        },
+        {
+          "name": "test_unknown_material_no_pos",
+          "outcome": "passed",
+          "duration": 0.0008
+        },
+        {
+          "name": "test_invalid_deadline_returns_error",
+          "outcome": "passed",
+          "duration": 0.0008
+        },
+        {
+          "name": "test_build_payload_structure",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_build_payload_supply_chain_nodes_include_supplier_and_customer",
+          "outcome": "passed",
+          "duration": 0.0002
+        },
+        {
+          "name": "test_format_response_has_delimiter",
+          "outcome": "passed",
+          "duration": 0.0003
+        }
+      ],
+      "coverage": 88.52
+    }
+  ]
+}

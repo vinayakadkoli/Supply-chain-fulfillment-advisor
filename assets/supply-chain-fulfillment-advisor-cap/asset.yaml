@@ -1,0 +1,34 @@
+apiVersion: asset.sap/v1
+kind: Asset
+
+metadata:
+  name: supply-chain-fulfillment-advisor-cap
+  version: 1.0.0
+  description: >
+    CAP BTP Extension with React dark-themed dashboard for the Supply Chain
+    Fulfillment Advisor. Provides OData service, triggers the AI agent, and
+    renders KPI cards, bottleneck chips, network map/flow views, and action buttons.
+
+type: cap-app
+
+components:
+  - name: srv
+    buildPath: .
+    outputPath: gen/srv
+    provides:
+      endpoints:
+        - path: /odata/v4
+          port: 4004
+          protocol: http
+      protocols: [odata-v4, rest]
+    port: 4004
+    requires:
+      - name: hdi-container
+  - name: hdi-deployer
+    type: hdi-deployer
+    buildPath: .
+    outputPath: gen/db
+    requires:
+      - hdi-container
+    custom:
+      lifecycle: init

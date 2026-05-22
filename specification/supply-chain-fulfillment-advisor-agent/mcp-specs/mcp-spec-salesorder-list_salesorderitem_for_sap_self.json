@@ -1,0 +1,65 @@
+{
+  "mcpServerOrdId": "sap.s4:apiResource:CE_SALESORDER_0001_MCP:v1",
+  "name": "list_salesorderitem_for_sap_self",
+  "title": "list_SalesOrderItem_for_sap_self",
+  "description": "Retrieve a list of entities from the SalesOrderItem collection in the sap_self service. Supports OData query options for filtering, sorting, ranking ($top), skipping ($skip), expanding related entities, counting, selecting specific properties.",
+  "inputSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [],
+    "properties": {
+      "filter": {
+        "title": "filter",
+        "description": "OData $filter expression. Example: SalesOrder eq '1000001'",
+        "type": "string"
+      },
+      "select": {
+        "title": "select",
+        "description": "OData $select — comma-separated property names",
+        "type": "string",
+        "examples": ["SalesOrder,SalesOrderItem,Product,RequestedQuantity,RequestedDeliveryDate,Plant"]
+      },
+      "top": {
+        "title": "top",
+        "description": "OData $top — max number of records to return (max 100)",
+        "type": "integer",
+        "minimum": 0
+      },
+      "skip": {
+        "title": "skip",
+        "description": "OData $skip — offset for pagination",
+        "type": "integer",
+        "minimum": 0
+      },
+      "expand": { "title": "expand", "type": "string" },
+      "orderby": { "title": "orderby", "type": "string" },
+      "count": { "title": "count", "type": "boolean" }
+    }
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "value": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "SalesOrder": { "type": "string", "maxLength": 10 },
+            "SalesOrderItem": { "type": "string", "maxLength": 6 },
+            "Product": { "type": "string", "maxLength": 40 },
+            "RequestedQuantity": { "type": "number" },
+            "RequestedQuantitySAPUnit": { "type": "string", "maxLength": 3 },
+            "RequestedDeliveryDate": { "type": ["string", "null"] },
+            "ConfirmedDeliveryDate": { "type": ["string", "null"] },
+            "Plant": { "type": "string", "maxLength": 4 },
+            "StorageLocation": { "type": "string", "maxLength": 4 },
+            "DeliveryStatus": { "type": "string", "maxLength": 1 },
+            "SDProcessStatus": { "type": "string", "maxLength": 1 },
+            "NetAmount": { "type": "number" },
+            "TransactionCurrency": { "type": "string", "maxLength": 3 }
+          }
+        }
+      }
+    }
+  }
+}

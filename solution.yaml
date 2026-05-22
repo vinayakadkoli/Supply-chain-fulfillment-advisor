@@ -1,0 +1,14 @@
+apiVersion: solution.sap/v1
+kind: Solution
+
+metadata:
+  name: supply-chain-fulfillment-advisor-af112
+  version: 1.0.0
+  description: >
+    Conversational AI agent that helps supply chain planners assess sales order
+    fulfillment feasibility, identify inventory gaps, scan open purchase orders,
+    and recommend delivery actions — rendered through a dark-themed React dashboard.
+
+assets:
+  - ref: ./assets/supply-chain-fulfillment-advisor-agent/asset.yaml
+  - ref: ./assets/supply-chain-fulfillment-advisor-cap/asset.yaml

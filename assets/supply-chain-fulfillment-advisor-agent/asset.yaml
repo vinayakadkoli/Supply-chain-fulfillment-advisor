@@ -1,0 +1,40 @@
+apiVersion: asset.sap/v1
+kind: Asset
+
+metadata:
+  name: supply-chain-fulfillment-advisor-agent
+  version: 1.0.3
+  description: >
+    Python A2A AI agent that performs the five-step supply chain fulfillment
+    analysis: sales order retrieval, inventory assessment, gap calculation,
+    PO scan, and delivery recommendation.
+
+type: agent
+
+container:
+  buildPath: .
+  port: 5000
+
+requires:
+  - name: ce-salesorder-mcp
+    kind: mcp-server
+    ordId: sap.s4:apiResource:CE_SALESORDER_0001_MCP:v1
+
+probes:
+  startup:
+    path: /.well-known/agent.json
+    periodSeconds: 5
+    timeoutSeconds: 3
+    failureThreshold: 18
+  liveness:
+    path: /.well-known/agent.json
+    initialDelaySeconds: 15
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 3
+  readiness:
+    path: /.well-known/agent.json
+    initialDelaySeconds: 5
+    periodSeconds: 5
+    timeoutSeconds: 3
+    failureThreshold: 3

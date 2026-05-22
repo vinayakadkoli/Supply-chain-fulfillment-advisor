@@ -1,4 +1,4 @@
-# build-cache-bust: 2026-05-21-v13-repacked-25-wheels
+# build-cache-bust: 2026-05-22-v17-cap-outputs-fix
 sap-cloud-sdk==0.19.3
 litellm==1.83.0,!=1.82.7,!=1.82.8
 langchain==1.2.15
